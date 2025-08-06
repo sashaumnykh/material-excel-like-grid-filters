@@ -1,0 +1,122 @@
+.highlighted-row {
+  background-color:lightcyan;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: paleturquoise;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: plum;
+  content: "\f00c";
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+.mat-table {
+  table-layout: fixed;
+width: 100%;
+display: table;
+}
+
+
+.mat-column-Select {
+  word-wrap: break-word !important;
+  width: 3% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-TagName {
+  word-wrap: break-word !important;
+  width: 16% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-Created {
+  word-wrap: break-word !important;
+  width: 16% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-Status {
+  word-wrap: break-word !important;
+  width: 15% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-UsedFromDoc {
+  word-wrap: break-word !important;
+  width: 25% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-ParsedFromDoc {
+  word-wrap: break-word !important;
+  width: 25% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-SelectFilter {
+  word-wrap: break-word !important;
+  width: 3% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-TagNameFilter {
+  word-wrap: break-word !important;
+  width: 16% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-CreatedFilter {
+  word-wrap: break-word !important;
+  width: 16% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-StatusFilter {
+  word-wrap: break-word !important;
+  width: 15% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-UsedFromDocFilter {
+  word-wrap: break-word !important;
+  width: 25% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.mat-column-ParsedFromDocFilter {
+  word-wrap: break-word !important;
+  width: 25% !important;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.filters-row {
+  height: 0% !important;
+}
+
+.filter {
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 90%;
+}
+
+.mat-label {
+  color: black;
+}
+
+td:hover {
+  cursor: pointer;
+}

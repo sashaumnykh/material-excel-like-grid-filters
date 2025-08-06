@@ -1,0 +1,168 @@
+
+
+<div [hidden]="false">
+    <div style = "display: flex; margin-bottom: 15px; justify-content:space-between;">
+      <mat-slide-toggle [(ngModel)]="enableFilters">Enable filters</mat-slide-toggle>
+      
+    </div>
+
+    <div class="mat-elevation-z8">
+        <mat-paginator #paginatorTop 
+                [pageSizeOptions]="[10, 25, 50, 75, 100]"
+                (page)="handlePageTop($event)" 
+                showFirstLastButtons
+                [length]="resultsLength"
+                aria-label="Select page">
+        </mat-paginator>
+
+        <mat-table #table [dataSource]="dataSource" multiTemplateDataRows style="width: 100%;" matSort (matSortChange)="sortData($event)">
+
+          <ng-container matColumnDef="Select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            [aria-label]="checkboxLabel()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="TagName">
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="tag">
+              <span>Tag Name</span>
+            </th>
+            <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)"> 
+              <div *ngIf="!isPublished(row.adoptedTag)">
+                {{row.adoptedTag.tagName}}
+              </div>
+              <div *ngIf="isPublished(row.adoptedTag)">
+                <a target="_blank" [href]="'https://172.16.128.86/#/item/30%7CTAG%7C'+row.adoptedTag.tagName">
+                  {{row.adoptedTag.tagName}}
+                </a>
+              </div>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="Created">
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="created">Created</th>
+            <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
+              {{row.adoptedTag.created | date : 'dd/MM/yyyy, h:mm a'}} 
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="statusId">Status</th>
+            <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
+              {{getStatusDescription(row.adoptedTag.statusId)}} 
+            </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="UsedFromDoc">
+            <th mat-header-cell class="min-width" *matHeaderCellDef>Used From Document Number</th>
+            <td mat-cell class="min-width" *matCellDef="let row"> 
+              <table width="100%" *ngIf="row.adoptedTag.usedInDocuments && row.adoptedTag.usedInDocuments.length > 0">
+                <tr *ngFor="let usedFromDoc of row.adoptedTag.usedInDocuments">
+                  <td>
+                    <a target="_blank">
+                      {{usedFromDoc}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </ng-container>
+
+          <!-- Filters -->
+          <ng-container matColumnDef="SelectFilter">
+            <th mat-header-cell *matHeaderCellDef > 
+            </th>
+          </ng-container>
+
+          <ng-container matColumnDef="TagNameFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-label style="color: black;">Tag name</mat-label>
+                  <input matInput [(ngModel)]="adoptedTagFilter.tagName" (keyup.enter)="loadTags()" placeholder="Tag name" #input>
+                  <button *ngIf="nameFilter" matSuffix mat-icon-button aria-label="Clear" (click)="adoptedTagFilter.tagName=''; loadTags()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container>
+
+          <ng-container matColumnDef="CreatedFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters" [formGroup]="dateFilterGroup">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-label style="color: black;">Filter by date</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="adoptedTagFilter.created"
+                  formControlName="dateFilterControl" (dateChange)="loadTags()">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker-toggle matSuffix (click)="adoptedTagFilter.created = undefined;loadTags()">
+                      <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container> 
+
+          <ng-container matColumnDef="StatusFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-select [(ngModel)]="adoptedTagFilter.status" placeholder="Choose Status" (selectionChange)="loadTags()">
+                    <mat-option value="">
+                      All Statuses
+                    </mat-option>
+                    <mat-option *ngFor="let status of listAdoptedTagsStatuses" [value]="status.status">
+                      {{status.status}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container> 
+
+          <ng-container matColumnDef="UsedFromDocFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-select [(ngModel)]="adoptedTagFilter.usedInDocument" placeholder="Choose document number" (selectionChange)="loadTags()">
+                    <mat-option value="">
+                      All Numbers
+                    </mat-option>
+                    <mat-option *ngFor="let number of listUFDNumbers" [value]="number.documentNumber">
+                      {{number.documentNumber}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container> 
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedFilterColumns" class="filters-row"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            [ngClass]="{'highlighted-row': row.isSelected == true}"
+          ></tr>
+        </mat-table>
+
+        <mat-paginator #paginatorBottom 
+                [pageSizeOptions]="[10, 25, 50, 75, 100]"
+                (page)="handlePageBottom($event)" 
+                showFirstLastButtons
+                [length]="resultsLength"
+                aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>

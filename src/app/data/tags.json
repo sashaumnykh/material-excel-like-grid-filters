@@ -1,0 +1,362 @@
+[
+  {
+    "id": "7d774ac6-4e6b-4601-9c36-4f74d3f5f02c",
+    "tagName": "PMP_1001",
+    "adoptedType": "OTHER",
+    "status": "ACTIVE",
+    "created": "2023-11-15T13:25:44.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-00523"]
+  },
+  {
+    "id": "6301cf85-eb05-4ff3-a3bb-e15d0ff1f960",
+    "tagName": "VALVE#12$",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "INBOX",
+    "created": "2023-12-22T09:14:31.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["ENG-2022-014", "PRJ-001211"]
+  },
+  {
+    "id": "cef7557b-07ea-43ce-b726-b11f92e7a20b",
+    "tagName": "ДАТЧИК_ТЕМП",
+    "adoptedType": "CYRILLIC",
+    "status": "VOID",
+    "created": "2023-10-04T17:35:02.000Z",
+    "userId": "f9e57232-f521-42c8-9cd1-b8f99e5da6fe",
+    "usedInDocuments": ["DOC-00098"]
+  },
+  {
+    "id": "809db1e9-3a01-4b6b-a65c-8659ad4bcdd2",
+    "tagName": "TEMP SENSOR",
+    "adoptedType": "SPACE",
+    "status": "ACTIVE",
+    "created": "2023-08-19T11:17:07.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["PRJ-000341", "DOC-01567"]
+  },
+  {
+    "id": "bf30fce8-bbe0-42f9-ad45-4870b2aec662",
+    "tagName": "PMP_1O02",
+    "adoptedType": "TYPO",
+    "status": "INBOX",
+    "created": "2023-09-27T05:40:15.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-00789"]
+  },
+  {
+    "id": "155fff5b-2489-426a-8c32-2015093649d6",
+    "tagName": "CTRL@VALVE",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "ACTIVE",
+    "created": "2024-02-13T14:22:09.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["PRJ-000675", "ENG-2023-090", "DOC-04212"]
+  },
+  {
+    "id": "b8f84e1c-5565-4e01-805d-84e2b749778d",
+    "tagName": "VALVE_113",
+    "adoptedType": "OTHER",
+    "status": "VOID",
+    "created": "2023-10-11T16:10:02.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["PRJ-000902"]
+  },
+  {
+    "id": "36f025f7-8c78-4eea-a799-70b62eaf60c4",
+    "tagName": "ДАТЧИК_ДАВЛ",
+    "adoptedType": "CYRILLIC",
+    "status": "ACTIVE",
+    "created": "2024-01-20T09:16:50.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["ENG-2023-111"]
+  },
+  {
+    "id": "b6c26c64-094e-44d2-b3ea-26f5ffb58faa",
+    "tagName": "PMP_1003 ",
+    "adoptedType": "SPACE",
+    "status": "INBOX",
+    "created": "2024-03-09T08:17:41.000Z",
+    "userId": "f9e57232-f521-42c8-9cd1-b8f99e5da6fe",
+    "usedInDocuments": ["DOC-00001"]
+  },
+  {
+    "id": "284c4a42-e6f1-49be-be59-ca3dad504ae6",
+    "tagName": "VALVE_99@",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "VOID",
+    "created": "2023-12-03T21:46:12.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["PRJ-000450"]
+  },
+  {
+    "id": "7e7a47c5-2b7b-4a3f-a879-b20d8e0319e0",
+    "tagName": "TEMP_1004",
+    "adoptedType": "OTHER",
+    "status": "ACTIVE",
+    "created": "2023-07-14T10:30:00.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["DOC-01001"]
+  },
+  {
+    "id": "6d2a64c1-3c8b-4d1d-80e4-c53a4a2a8d91",
+    "tagName": "VALVE#13",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "INBOX",
+    "created": "2024-01-20T12:15:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["ENG-2023-002"]
+  },
+  {
+    "id": "8492c3f7-ecee-4e24-b08d-c06b7c37919e",
+    "tagName": "ДАТЧИК_ВОДА",
+    "adoptedType": "CYRILLIC",
+    "status": "VOID",
+    "created": "2023-11-01T09:00:00.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["PRJ-01123"]
+  },
+  {
+    "id": "d7f6db0d-52f6-4b79-85db-10e4f65efc60",
+    "tagName": "PRESSURE@SENSOR",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "ACTIVE",
+    "created": "2024-02-15T16:45:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["DOC-02020", "PRJ-02021"]
+  },
+  {
+    "id": "1d4e9e9b-6f0a-43b6-9432-8aabbe73f7a2",
+    "tagName": "VALVE_114",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-10-30T11:30:00.000Z",
+    "userId": "f9e57232-f521-42c8-9cd1-b8f99e5da6fe",
+    "usedInDocuments": ["PRJ-00333"]
+  },
+  {
+    "id": "7a56e5d3-cb18-433b-9b4b-3b9e6b15e5e8",
+    "tagName": "PMP_1005",
+    "adoptedType": "TYPO",
+    "status": "ACTIVE",
+    "created": "2023-09-12T07:20:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-03344"]
+  },
+  {
+    "id": "0cfd2e66-cd0f-4d1a-8c6c-91d8c2b2dfff",
+    "tagName": "TEMP-SENSOR",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "VOID",
+    "created": "2024-01-01T08:00:00.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["DOC-04040"]
+  },
+  {
+    "id": "6a8c4e1d-66bb-4b7d-bc9c-232eebd1cc3e",
+    "tagName": "ДАТЧИК_ВИБР",
+    "adoptedType": "CYRILLIC",
+    "status": "ACTIVE",
+    "created": "2023-12-22T14:30:00.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["ENG-2023-004"]
+  },
+  {
+    "id": "87e7ab16-7b5e-4a79-b2d4-64bc8e1c433f",
+    "tagName": "VALVE_115",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-09-20T13:00:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["PRJ-00444"]
+  },
+  {
+    "id": "dad47b5c-57a9-4e31-8c7b-0f91149f09ec",
+    "tagName": "PMP_1006",
+    "adoptedType": "TYPO",
+    "status": "ACTIVE",
+    "created": "2023-08-30T09:45:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-05555", "PRJ-05556"]
+  },
+  {
+    "id": "e89c3f6d-34e1-4a65-987b-6f2c962b6fda",
+    "tagName": "TEMP_SENSOR_1",
+    "adoptedType": "OTHER",
+    "status": "VOID",
+    "created": "2024-03-01T11:00:00.000Z",
+    "userId": "f9e57232-f521-42c8-9cd1-b8f99e5da6fe",
+    "usedInDocuments": ["DOC-06666"]
+  },
+  {
+    "id": "9b07a4d4-4a3a-4f7b-8d9a-3bf77a5c6e1f",
+    "tagName": "CTRL_VALVE",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-10-18T14:30:00.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["ENG-01111"]
+  },
+  {
+    "id": "f32a682b-3f09-4f88-9873-b7e4bc0d7d0e",
+    "tagName": "VALVE_116",
+    "adoptedType": "OTHER",
+    "status": "ACTIVE",
+    "created": "2023-12-25T10:15:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["PRJ-00678"]
+  },
+  {
+    "id": "47c11231-56b6-4e72-bbb1-8a3e3d7fbb33",
+    "tagName": "PMP_1007",
+    "adoptedType": "TYPO",
+    "status": "VOID",
+    "created": "2023-09-01T08:30:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-07777"]
+  },
+  {
+    "id": "d8fbd998-61a1-4f09-bb8e-331dbb4a6e99",
+    "tagName": "ДАТЧИК_УРОВЕНЬ",
+    "adoptedType": "CYRILLIC",
+    "status": "INBOX",
+    "created": "2023-11-11T10:00:00.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["PRJ-00888"]
+  },
+  {
+    "id": "d3e3ae9d-5ef4-4f1d-b53b-4a8f2a6dfc3f",
+    "tagName": "PRESSURE_VALVE",
+    "adoptedType": "OTHER",
+    "status": "ACTIVE",
+    "created": "2023-07-20T09:15:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["DOC-08888"]
+  },
+  {
+    "id": "5e1746e3-49cd-4c97-b949-7682f9f66a9f",
+    "tagName": "PRESSURE_SENSOR_2",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-08-05T09:10:00.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["DOC-09999"]
+  },
+  {
+    "id": "7f1a2e5b-ff6a-49bb-80de-869db0b7cc22",
+    "tagName": "VALVE_117",
+    "adoptedType": "OTHER",
+    "status": "ACTIVE",
+    "created": "2023-07-15T14:00:00.000Z",
+    "userId": "f9e57232-f521-42c8-9cd1-b8f99e5da6fe",
+    "usedInDocuments": ["PRJ-01010"]
+  },
+  {
+    "id": "ae3e1b99-15f3-4e0f-a8e5-37c2ac0b2c91",
+    "tagName": "TEMP_SENSOR_3",
+    "adoptedType": "OTHER",
+    "status": "VOID",
+    "created": "2024-02-25T10:45:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-11111"]
+  },
+  {
+    "id": "84a09f6a-1e36-4a54-90a1-8e25533b3ec1",
+    "tagName": "ДАТЧИК_ДАВЛЕНИЯ",
+    "adoptedType": "CYRILLIC",
+    "status": "ACTIVE",
+    "created": "2023-12-01T11:30:00.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["PRJ-02020"]
+  },
+  {
+    "id": "1a4d4bb4-8f84-43c3-a327-789d3a2d8a5a",
+    "tagName": "VALVE_118",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-09-10T09:20:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["PRJ-03030"]
+  },
+  {
+    "id": "f9631ef5-4f34-46b1-99e0-cbde39c345ee",
+    "tagName": "PMP_1008",
+    "adoptedType": "TYPO",
+    "status": "ACTIVE",
+    "created": "2023-08-25T07:50:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-04444"]
+  },
+  {
+    "id": "6201d9e0-c505-4ef1-aab8-569d96a3d45c",
+    "tagName": "TEMP-VALVE_4",
+    "adoptedType": "SPECIAL_SYMBOLS",
+    "status": "VOID",
+    "created": "2024-01-10T08:30:00.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["DOC-05555"]
+  },
+  {
+    "id": "8a48b1b8-59b3-408d-9d87-6fa9c9cae84f",
+    "tagName": "ДАТЧИК_ТЕМПЕРАТУРЫ",
+    "adoptedType": "CYRILLIC",
+    "status": "ACTIVE",
+    "created": "2023-11-15T13:20:00.000Z",
+    "userId": "c3af5d02-cdae-4bbb-93b6-8a0f65b9c88d",
+    "usedInDocuments": ["ENG-04444"]
+  },
+  {
+    "id": "d1cc16cc-5e28-41e7-8639-77a890cfa7cd",
+    "tagName": "VALVE_119",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-10-01T12:00:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["PRJ-05555"]
+  },
+  {
+    "id": "0d5c98f4-e4ec-4f6e-97bb-1933eb4b4e4a",
+    "tagName": "PMP_1009",
+    "adoptedType": "TYPO",
+    "status": "ACTIVE",
+    "created": "2023-08-10T08:00:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-06666"]
+  },
+  {
+    "id": "4c9e17c3-4e59-42f7-b94d-409b4d10a9e2",
+    "tagName": "TEMP_SENSOR_5",
+    "adoptedType": "OTHER",
+    "status": "VOID",
+    "created": "2024-03-10T09:00:00.000Z",
+    "userId": "f9e57232-f521-42c8-9cd1-b8f99e5da6fe",
+    "usedInDocuments": ["DOC-07777"]
+  },
+  {
+    "id": "90f3e748-c516-4572-8b69-2f0db1d9a8a0",
+    "tagName": "CTRL_VALVE_2",
+    "adoptedType": "OTHER",
+    "status": "INBOX",
+    "created": "2023-10-20T13:30:00.000Z",
+    "userId": "0d9b231c-bac0-42e9-bc29-bccffd63e252",
+    "usedInDocuments": ["ENG-06666"]
+  },
+  {
+    "id": "6d2e8c1e-9a97-4f14-a484-d66f2bcbdf3a",
+    "tagName": "VALVE_120",
+    "adoptedType": "OTHER",
+    "status": "ACTIVE",
+    "created": "2023-12-31T10:00:00.000Z",
+    "userId": "8d33d6e8-1f6d-4f59-bb76-f2ad8be9c9d9",
+    "usedInDocuments": ["PRJ-07777"]
+  },
+  {
+    "id": "4f6f8473-5f5e-48ca-b2a0-d5f874e2b8a3",
+    "tagName": "PMP_1010",
+    "adoptedType": "TYPO",
+    "status": "VOID",
+    "created": "2023-09-15T07:30:00.000Z",
+    "userId": "fab11645-04cc-42c7-a55a-70ed6c7cd39c",
+    "usedInDocuments": ["DOC-08888"]
+  }
+]
