@@ -1,12 +1,28 @@
 
 
 <div [hidden]="false">
+    <div style="padding-bottom: 10px;">
+      <mat-accordion>
+          <mat-expansion-panel hideToggle class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-size: 1.5rem;">
+                  Adopted tags
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p style="font-size: 1.1rem;">
+              Tags that are not valid, but adopted by the company.
+            </p>
+          </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
     <div style = "display: flex; margin-bottom: 15px; justify-content:space-between;">
-      <mat-slide-toggle [(ngModel)]="enableFilters">Enable filters</mat-slide-toggle>
+      
       
     </div>
 
-    <div class="mat-elevation-z8">
+    <div class="container mat-elevation-z8">
+        <mat-slide-toggle [(ngModel)]="enableFilters">Enable filters</mat-slide-toggle>
         <mat-paginator #paginatorTop 
                 [pageSizeOptions]="[10, 25, 50, 75, 100]"
                 (page)="handlePageTop($event)" 
@@ -49,18 +65,25 @@
               </div>
             </td>
           </ng-container>
-      
-          <ng-container matColumnDef="Created">
-            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="created">Created</th>
+
+          <ng-container matColumnDef="AdoptedType">
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="adoptedType">Adopted type</th>
             <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
-              {{row.adoptedTag.created | date : 'dd/MM/yyyy, h:mm a'}} 
+              {{row.adoptedTag.adoptedType}} 
             </td>
           </ng-container>
 
           <ng-container matColumnDef="Status">
             <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="statusId">Status</th>
             <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
-              {{getStatusDescription(row.adoptedTag.statusId)}} 
+              {{row.adoptedTag.status}} 
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="Created">
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="created">Created</th>
+            <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
+              {{row.adoptedTag.created | date : 'dd/MM/yyyy, h:mm a'}} 
             </td>
           </ng-container>
     
@@ -76,6 +99,13 @@
                   </td>
                 </tr>
               </table>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="User">
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="user">Added by</th>
+            <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
+              {{getUserNameById(row.adoptedTag.userId)}} 
             </td>
           </ng-container>
 
@@ -99,6 +129,40 @@
             </th>
           </ng-container>
 
+          <ng-container matColumnDef="AdoptedTypeFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-select [(ngModel)]="adoptedTagFilter.adoptedType" placeholder="Choose Adopted type" (selectionChange)="loadTags()">
+                    <mat-option value="">
+                      All Adopted types
+                    </mat-option>
+                    <mat-option *ngFor="let type of listAdoptedTypes" [value]="type">
+                      {{type}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container> 
+
+          <ng-container matColumnDef="StatusFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-select [(ngModel)]="adoptedTagFilter.status" placeholder="Choose Status" (selectionChange)="loadTags()">
+                    <mat-option value="">
+                      All Statuses
+                    </mat-option>
+                    <mat-option *ngFor="let status of listAdoptedTagsStatuses" [value]="status">
+                      {{status}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container> 
+
           <ng-container matColumnDef="CreatedFilter">
             <th mat-header-cell *matHeaderCellDef class="min-width"> 
               <div [hidden]="!enableFilters" [formGroup]="dateFilterGroup">
@@ -116,23 +180,6 @@
             </th>
           </ng-container> 
 
-          <ng-container matColumnDef="StatusFilter">
-            <th mat-header-cell *matHeaderCellDef class="min-width"> 
-              <div [hidden]="!enableFilters">
-                <mat-form-field appearance="outline" class="filter">
-                  <mat-select [(ngModel)]="adoptedTagFilter.status" placeholder="Choose Status" (selectionChange)="loadTags()">
-                    <mat-option value="">
-                      All Statuses
-                    </mat-option>
-                    <mat-option *ngFor="let status of listAdoptedTagsStatuses" [value]="status.status">
-                      {{status.status}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </th>
-          </ng-container> 
-
           <ng-container matColumnDef="UsedFromDocFilter">
             <th mat-header-cell *matHeaderCellDef class="min-width"> 
               <div [hidden]="!enableFilters">
@@ -143,6 +190,23 @@
                     </mat-option>
                     <mat-option *ngFor="let number of listUFDNumbers" [value]="number.documentNumber">
                       {{number.documentNumber}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </th>
+          </ng-container> 
+
+          <ng-container matColumnDef="UserFilter">
+            <th mat-header-cell *matHeaderCellDef class="min-width"> 
+              <div [hidden]="!enableFilters">
+                <mat-form-field appearance="outline" class="filter">
+                  <mat-select [(ngModel)]="adoptedTagFilter.userName" placeholder="Choose User" (selectionChange)="loadTags()">
+                    <mat-option value="">
+                      All Users
+                    </mat-option>
+                    <mat-option *ngFor="let user of listUsers" [value]="user.name">
+                      {{user.name}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

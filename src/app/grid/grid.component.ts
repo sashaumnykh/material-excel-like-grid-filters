@@ -46,13 +46,14 @@ export class GridComponent {
   @ViewChild('paginatorTop') topPaginator: MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
   @ViewChild('paginatorBottom') bottomPaginator: MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
 
-  displayedColumns: string[] = ['Select', 'TagName', 'Created', 'Status', 'UsedFromDoc'];
-  displayedFilterColumns: string[] = ['SelectFilter', 'TagNameFilter', 'CreatedFilter', 'StatusFilter', 'UsedFromDocFilter'];
+  displayedColumns: string[] = ['Select', 'TagName', 'AdoptedType', 'Status', 'Created', 'UsedFromDoc', 'User'];
+  displayedFilterColumns: string[] = ['SelectFilter', 'TagNameFilter', 'AdoptedTypeFilter', 'StatusFilter', 'CreatedFilter', 'UsedFromDocFilter', 'UserFilter'];
   selection = new SelectionModel<AdoptedTagRow>(true, []);
 
   resultsLength: number = 0;
 
-  listAdoptedTagsStatuses: AdoptedTagStatus[] = [];
+  listAdoptedTypes: string[]  = ['CYRILLIC', 'TYPO', 'SPACE', 'SPECIAL_SYMBOLS', 'OTHER'];
+  listAdoptedTagsStatuses: string[] = ['INBOX', 'VOID', 'ACTIVE'];
   puslishedStatus: AdoptedTagStatus | undefined = {};
   listAdoptedTags: AdoptedTagObj[] = [];
   listAdoptedTagsRows: AdoptedTagRow[] = [];
@@ -118,7 +119,6 @@ export class GridComponent {
 
     this.loadTags();
     this.loadUsers();
-    this.loadTagStatuses();
     this.loadUsedFromDoc();
     this.loadParsedFromDoc();
     this.getUser();
@@ -219,7 +219,6 @@ export class GridComponent {
       .pipe(
         startWith({}),
         switchMap(() => {
-          //this.loaderService.display(true);
           return this.dataService.getAdoptedTags(this.adoptedTagFilter, this.topPaginator.pageIndex, this.topPaginator.pageSize,
                                             this.sortColumn, this.sortDirection)
             .pipe(catchError(() => observableOf(null)));
@@ -242,18 +241,32 @@ export class GridComponent {
 
         this.dataSource = new MatTableDataSource(this.listAdoptedTagsRows);
         this.dataSource2 = this.dataSource;
-
-        //this.loaderService.display(false);
       });
     
   }
 
   loadUsers() {
-
+    this.dataService.getUsers().subscribe(result => {
+      this.listUsers = result as UserObj[];
+      this.filteredUsers = this.userControl.valueChanges.pipe(
+        startWith(''),
+        map(value => {
+          const name = typeof value === 'string' ? value : value?.name;
+          return name ? this._userFilter(name as string) : this.listUsers.slice();
+        }),
+      );
+    }, error => {
+      console.error(error);
+      console.error(error.error);
+    });
   }
 
-  loadTagStatuses() {
-
+  private _userFilter(name: string): UserObj[] {
+    const filterValue = name.toLowerCase();
+    if (name === 'all') {
+      return this.listUsers;
+    }
+    return this.listUsers.filter(option => option?.name?.toLowerCase().includes(filterValue));
   }
 
   public handlePageTop(e: any) {
@@ -320,10 +333,6 @@ export class GridComponent {
     return user && user.name ? user.name : 'All users';
   }
 
-  getStatusDescription(id: Guid | undefined) {
-    return this.listAdoptedTagsStatuses.find(t => t.id == id)?.status;
-  }
-
   isPublished(tag: AdoptedTagObj) {
     return tag.status == 'ACTIVE' || tag.status == 'VOID';
   }
@@ -351,14 +360,6 @@ export class GridComponent {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row}`;
-  }
-
-  private _userFilter(name: string): UserObj[] {
-    const filterValue = name.toLowerCase();
-    if (name === 'all') {
-      return this.listUsers;
-    }
-    return this.listUsers.filter(option => option?.name?.toLowerCase().includes(filterValue));
   }
 
   openOrClosePanel(evt: any, trigger: MatAutocompleteTrigger): void {

@@ -12,6 +12,13 @@
   font: normal normal normal 14px/1 FontAwesome;
 }
 
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 4px;
+}
+
 .mat-table {
   table-layout: fixed;
 width: 100%;
