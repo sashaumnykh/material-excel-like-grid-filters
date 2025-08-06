@@ -25,7 +25,9 @@
         <div class="filters-toolbar">
           <mat-slide-toggle [(ngModel)]="enableFilters">Enable filters</mat-slide-toggle>
 
-          <button mat-button color="primary" (click)="clearFilters()" [disabled]="!enableFilters">
+          <button mat-button color="primary"
+                  (click)="clearFilters()"
+                  [disabled]="!enableFilters">
             <mat-icon>filter_alt_off</mat-icon>
             Clear filters
           </button>

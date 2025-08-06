@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
@@ -46,7 +47,8 @@ import { GridComponent } from './grid/grid.component';
     MatInputModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    MatButtonModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
