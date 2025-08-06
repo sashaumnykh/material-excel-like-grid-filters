@@ -22,7 +22,15 @@
     </div>
 
     <div class="container mat-elevation-z8">
-        <mat-slide-toggle [(ngModel)]="enableFilters">Enable filters</mat-slide-toggle>
+        <div class="filters-toolbar">
+          <mat-slide-toggle [(ngModel)]="enableFilters">Enable filters</mat-slide-toggle>
+
+          <button mat-button color="primary" (click)="clearFilters()" [disabled]="!enableFilters">
+            <mat-icon>filter_alt_off</mat-icon>
+            Clear filters
+          </button>
+        </div>
+
         <mat-paginator #paginatorTop 
                 [pageSizeOptions]="[10, 25, 50, 75, 100]"
                 (page)="handlePageTop($event)" 
@@ -76,7 +84,7 @@
           </ng-container>
 
           <ng-container matColumnDef="Status">
-            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="statusId">Status</th>
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="status">Status</th>
             <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
               <mat-chip [ngClass]="row.adoptedTag.status | lowercase">
                 {{ row.adoptedTag.status }}
@@ -107,7 +115,7 @@
           </ng-container>
 
           <ng-container matColumnDef="User">
-            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="user">Added by</th>
+            <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="userName">Added by</th>
             <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
               {{getUserNameById(row.adoptedTag.userId)}} 
             </td>

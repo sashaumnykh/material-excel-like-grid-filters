@@ -9,7 +9,11 @@ import { AdoptedTagFilter } from '../models/adoptedTagFilter';
   providedIn: 'root'
 })
 export class DataService {
-  constructor() {}
+  private usersMap: Map<string, string>;
+
+  constructor() {
+    this.usersMap = new Map(users.map(u => [u.id, u.name]));
+  }
 
   getUsers(): Observable<any[]> {
     return of(users);
@@ -17,6 +21,11 @@ export class DataService {
 
   getAdoptedTags(filters: AdoptedTagFilter, pageIndex: number, pageSize: number, sortColumn: string, sortDirection: string): Observable<PagingObj> {
     let data = [...(adoptedTags as any[])];
+
+    data = data.map(t => ({
+      ...t,
+      userName: this.usersMap.get(t.userId) || ''
+    }));
 
     // 1) filtering
     if (filters) {
@@ -27,6 +36,7 @@ export class DataService {
       if (f.usedInDocument) {
         data = data.filter(t => t.usedInDocuments.some((d: string) => d.toLowerCase().includes(f.usedInDocument!.toLowerCase())));
       }
+      if (f.userName) data = data.filter(t => t.userName.toLowerCase() === f.userName?.toLowerCase());
     }
 
     // 2) sorting

@@ -1,17 +1,3 @@
-.highlighted-row {
-  background-color:lightcyan;
-}
-
-:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-  background-color: paleturquoise;
-}
-
-:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-  background-color: plum;
-  content: "\f00c";
-  font: normal normal normal 14px/1 FontAwesome;
-}
-
 .container {
   max-width: 95%;
   margin: 0 auto;
@@ -138,4 +124,11 @@ display: table;
 
 td:hover {
   cursor: pointer;
+}
+
+.filters-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 3px;
 }

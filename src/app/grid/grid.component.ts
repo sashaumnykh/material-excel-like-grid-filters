@@ -117,8 +117,9 @@ export class GridComponent {
     this.topPaginator.pageSize = 10;
     this.bottomPaginator.pageSize = 10;
 
-    this.loadTags();
     this.loadUsers();
+    this.loadTags();
+    
     this.loadUsedFromDoc();
     this.loadParsedFromDoc();
     this.getUser();
@@ -149,6 +150,7 @@ export class GridComponent {
   }
 
   loadTags() {
+    debugger;
     merge(this.sort.sortChange, this.topPaginator.page)
       .pipe(
         startWith({}),
@@ -161,8 +163,8 @@ export class GridComponent {
           if (data === null) {
               return new PagingObj();
           }
-          var paging = data as PagingObj;
-          this.resultsLength = paging.totalRecords || 0;
+          var paging = data as PagingObj; 
+          this.resultsLength = paging.filteredRecordsCount || 0;
           return paging;
         }),
       )
@@ -171,6 +173,7 @@ export class GridComponent {
           return;
 
         this.listAdoptedTags = paging.data as AdoptedTagObj[];
+        
         this.listAdoptedTagsRows = this.listAdoptedTags.map(e => new AdoptedTagRow(e, false));
 
         this.dataSource = new MatTableDataSource(this.listAdoptedTagsRows);
@@ -204,6 +207,7 @@ export class GridComponent {
   }
 
   public handlePageTop(e: any) {
+    debugger;
     let {pageSize} = e;
 
     this.selection.clear();
@@ -242,6 +246,8 @@ export class GridComponent {
         this.topPaginator.nextPage();
       }
     }
+
+    this.loadTags();
   }
 
   loadUsedFromDoc() {
@@ -250,6 +256,12 @@ export class GridComponent {
 
   loadParsedFromDoc() {
 
+  }
+
+  clearFilters() {
+    this.adoptedTagFilter = {};
+    this.dateFilterGroup.reset();
+    this.loadTags();
   }
   
   

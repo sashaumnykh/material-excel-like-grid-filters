@@ -11,7 +11,8 @@ export class AdoptedTagObj {
     public status: 'INBOX' | 'ACTIVE' | 'VOID',
     public created: Date, 
     public userId: string,
-    public usedInDocuments: string[]
+    public usedInDocuments: string[],
+    public userName?: string
   ) {
     this.id = '00000000-0000-0000-0000-000000000000' as Guid;
     this.created = new Date();
