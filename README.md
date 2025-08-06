@@ -1,59 +1,59 @@
-# MaterialExcelLikeGridFilters
+# 📊 Material Excel-like Grid Filters
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+**Демо:** [https://sashaumnykh.github.io/material-excel-like-grid-filters/](https://sashaumnykh.github.io/material-excel-like-grid-filters/)
 
-## Development server
+Этот проект демонстрирует, как можно реализовать фильтрацию данных в стиле Excel с использованием только Angular Material. Фильтры интегрированы в скрытую шапку таблицы, что позволяет экономить пространство и улучшать пользовательский интерфейс.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🔍 Описание
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Вдохновлённый интерфейсом Excel, этот компонент предоставляет:
 
-## Code scaffolding
+- **Фильтрация по значениям**: пользователи могут выбирать значения для фильтрации прямо из списка.
+- **Группировка по категориям**: фильтрация по категориям данных.
+- **Поиск по значениям**: возможность быстрого поиска по данным.
+- **Поддержка скрытой шапки**: фильтры интегрированы в скрытую шапку таблицы, экономя пространство.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🛠️ Технологии
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Angular**: основной фреймворк.
+- **Angular Material**: компоненты Material Design.
+- **CDK**: для работы с таблицами и фильтрами.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🚀 Установка и запуск
 
-To build the project run:
+1. Клонируйте репозиторий:
 
-```bash
-ng build
-```
+   ```bash
+   git clone https://github.com/sashaumnykh/material-excel-like-grid-filters.git
+   cd material-excel-like-grid-filters
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2.	Установите зависимости:
 
-## Running unit tests
+   ```npm install
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3.	Запустите приложение:
 
-```bash
-ng test
-```
+   ```ng serve
+   ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📈 План развития
+- **Улучшение фильтров**: 
+	•	Типы фильтров: добавление фильтров по числовым диапазонам, датам и другим типам данных.
+	•	Сохранение состояния фильтров: запоминание выбранных фильтров при перезагрузке страницы.
+- **Расширение функционала таблицы**: 
+	•	Редактирование данных: возможность редактировать ячейки таблицы.
+- **Повышение производительности**: 
+	•	Ленивая загрузка данных: загрузка данных по мере необходимости для улучшения производительности.
+	•	Оптимизация рендеринга: минимизация перерисовок компонентов для повышения скорости работы.
+- **Расширение документации**: 
+	•	Примеры использования: добавление примеров использования компонента в различных сценариях.
