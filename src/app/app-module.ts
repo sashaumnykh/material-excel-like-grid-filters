@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
@@ -44,7 +45,8 @@ import { GridComponent } from './grid/grid.component';
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

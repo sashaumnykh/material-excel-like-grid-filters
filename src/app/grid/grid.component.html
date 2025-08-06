@@ -69,14 +69,18 @@
           <ng-container matColumnDef="AdoptedType">
             <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="adoptedType">Adopted type</th>
             <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
-              {{row.adoptedTag.adoptedType}} 
+              <mat-chip [ngClass]="row.adoptedTag.adoptedType | lowercase">
+                {{ row.adoptedTag.adoptedType }}
+              </mat-chip>
             </td>
           </ng-container>
 
           <ng-container matColumnDef="Status">
             <th mat-header-cell class="min-width" *matHeaderCellDef sticky mat-sort-header="statusId">Status</th>
             <td mat-cell class="min-width" *matCellDef="let row" (click)="onRowClick(row)" class="expanded-row"> 
-              {{row.adoptedTag.status}} 
+              <mat-chip [ngClass]="row.adoptedTag.status | lowercase">
+                {{ row.adoptedTag.status }}
+              </mat-chip>
             </td>
           </ng-container>
       
@@ -217,7 +221,6 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-header-row *matHeaderRowDef="displayedFilterColumns" class="filters-row"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-            [ngClass]="{'highlighted-row': row.isSelected == true}"
           ></tr>
         </mat-table>
 
